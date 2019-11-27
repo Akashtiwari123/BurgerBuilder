@@ -1,2 +1,0 @@
-# BuildBurger
-Created with CodeSandbox
