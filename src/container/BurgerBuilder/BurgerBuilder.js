@@ -12,30 +12,35 @@ const INGREDIANTS_PRICE = {
 class BurgerBuilder extends Component {
   state = {
     ingrediants: {
-      salad: 2,
-      cheese: 1,
-      meat: 1,
-      myonnaise: 1
+      salad: 0,
+      cheese: 0,
+      meat: 0,
+      myonnaise: 0
     },
-    totalPrice: 10
+    totalPrice: 15
   };
 
-  addIng = type => {
+  addIngHandler = type => {
+    console.log(type);
     const oldCount = this.state.ingrediants[type];
+    console.log(oldCount);
     const updatedCount = oldCount + 1;
-    const updatedIngrediant = [...this.state.ingrediants];
+    const updatedIngrediant = { ...this.state.ingrediants };
     updatedIngrediant[type] = updatedCount;
+    console.log(updatedIngrediant);
     const priceAddition = INGREDIANTS_PRICE[type];
     const oldPrice = this.state.totalPrice;
     const newPrice = priceAddition + oldPrice;
     this.setState({ totalPrice: newPrice, ingrediants: updatedIngrediant });
   };
 
-  removeIng = type => {
-    const oldCount = this.state.ingrediants;
+  removeIngHandler = type => {
+    const oldCount = this.state.ingrediants[type];
+    console.log(oldCount);
     const updatedCount = oldCount - 1;
-    const updatedIngrediant = [...this.state.ingrediants];
+    const updatedIngrediant = { ...this.state.ingrediants };
     updatedIngrediant[type] = updatedCount;
+    console.log(updatedIngrediant);
     const priceDeduction = INGREDIANTS_PRICE[type];
     const oldPrice = this.state.totalPrice;
     const newPrice = oldPrice - priceDeduction;
@@ -48,7 +53,11 @@ class BurgerBuilder extends Component {
         <div>
           <Burger ingrediants={this.state.ingrediants} />
         </div>
-        <BuildControls />
+        <BuildControls
+          add={this.addIngHandler}
+          remove={this.removeIngHandler}
+        />
+        <div>Total Price: Rs.{this.state.totalPrice}</div>
       </Aux>
     );
   }
