@@ -8,3 +8,29 @@
   margin: auto;
   padding: 10px 0;
 }
+
+button {
+  display: block;
+  font: inherit;
+  padding: 8px;
+  margin: 0 5px;
+  width: 100px;
+  box-shadow: 1px 2px 4px rgb(34, 7, 7);
+  border: 1px solid #17aa54;
+  border-radius: 4px;
+  cursor: pointer;
+  outline: none;
+}
+
+button:disabled {
+  background-color: #4089c5;
+  border: 1px solid #7e7365;
+  color: #ccc;
+  cursor: default;
+}
+
+button:hover:disabled {
+  background-color: #ac9980;
+  color: #ccc;
+  cursor: not-allowed;
+}
