@@ -12,6 +12,7 @@ const orderSummary = props => {
       </li>
     );
   });
+
   return (
     <AUX>
       <h3> Your Order</h3>
@@ -19,7 +20,7 @@ const orderSummary = props => {
       <ul>{ingrediants}</ul>
       <p>Total Price: Rs.{props.price}</p>
       <p>Continue checkout ?</p>
-      <div style={{ marginLeft: 0, paddingLeft: 0 }}>
+      <div style={{ display: "flex" }}>
         <Button clicked={props.purchaseCancelHandler} name="cancel">
           CANCEL
         </Button>

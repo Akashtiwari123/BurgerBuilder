@@ -1,10 +1,10 @@
 .logo {
   background-color: white;
-  padding: 0px;
-  height: 5px;
+  padding: 8px;
+  height: 100%;
   box-sizing: border-box;
 }
 
 .img {
-  height: 10%;
+  height: 100%;
 }

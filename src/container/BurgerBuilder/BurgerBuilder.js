@@ -87,12 +87,14 @@ class BurgerBuilder extends Component {
   pruchaseContinueHadler = () => {
     alert("You can continue...");
   };
+
   render() {
     const disabledInfo = { ...this.state.ingrediants };
     console.log(disabledInfo);
     for (let key in disabledInfo) {
       disabledInfo[key] = disabledInfo[key] <= 0;
     }
+
     console.log(disabledInfo);
     return (
       <Aux>
