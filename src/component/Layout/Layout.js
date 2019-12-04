@@ -5,14 +5,27 @@ import Toolbar from "../UI/Toolbar/Toolbar";
 import SideDrawer from "../Navigation/SideDrawer/SideDrawer";
 
 class Layout extends Component {
+  state = {
+    showSideDrawer: true
+  };
+
+  cancelSideDrower = () => {
+    this.setState({ showSideDrawer: false });
+    console.log("cancel " + this.state.showSideDrawer);
+  };
+
   render() {
     return (
       <Aux>
         <Toolbar />
-        <SideDrawer />
+        <SideDrawer
+          open={this.state.showSideDrawer}
+          closed={this.cancelSideDrower}
+        />
         <main className="Content">{this.props.children}</main>
       </Aux>
     );
   }
 }
+
 export default Layout;
