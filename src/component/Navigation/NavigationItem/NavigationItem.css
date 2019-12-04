@@ -17,8 +17,8 @@ a {
   border-bottom: 4px solid transparent;
 }
 
-a.active,
-a.hover {
+a:active,
+a:hover {
   background-color: orange;
   border-bottom: 4px solid #82c840;
 }
