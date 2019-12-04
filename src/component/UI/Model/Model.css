@@ -1,20 +1,29 @@
-.Mod{
-    position: fixed;
-    z-index: 500;
-    background-color: #cde;
-    width: 70%;
-    border: 1px solid #ccc;
-    box-shadow: 1px 1px 1px black;
-    padding: 16px;
-    left: 15%;
-    top: 30%;
-    box-sizing: border-box;
-    transition: all 0.3s ease-out;
+.Mod {
+  position: fixed;
+  z-index: 500;
+  background-color: #cde;
+  width: 70%;
+  border: 1px solid #ccc;
+  box-shadow: 1px 1px 1px black;
+  padding: 16px;
+  left: 15%;
+  top: 30%;
+  box-sizing: border-box;
+  transition: all 0.5s ease-out;
 }
 
 @media (min-width: 600px) {
-    .Mod {
-        width: 500px;
-        left: calc(50% - 250px);
-    }
+  .Mod {
+    width: 500px;
+    left: calc(50% - 250px);
+  }
+}
+.Box {
+  background-color: rgb(102, 190, 51);
+  width: 40px;
+  height: 30px;
+  transition: width 2s;
+}
+.Box:hover {
+  width: 1000px;
 }

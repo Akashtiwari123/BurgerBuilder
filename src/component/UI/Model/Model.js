@@ -10,7 +10,7 @@ const model = props => (
     <div
       className="Mod"
       style={{
-        transform: props.show ? "translateX(40vh)" : "translateY(-100vh)",
+        transform: props.show ? "translateX(0)" : "translateY(-100vh)",
         opacity: props.show ? "1" : "0"
       }}
     >
