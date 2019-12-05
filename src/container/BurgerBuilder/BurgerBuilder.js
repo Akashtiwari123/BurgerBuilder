@@ -95,7 +95,7 @@ class BurgerBuilder extends Component {
       customer: {
         name: "Sky",
         Address: {
-          Add1: "H2 Hiranandani,Powai",
+          Add1: "Powai",
           City: "Mumbai",
           Pincode: "400024",
           State: "Maharashtra"
