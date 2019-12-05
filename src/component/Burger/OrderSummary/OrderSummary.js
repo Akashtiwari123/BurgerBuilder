@@ -24,7 +24,7 @@ const orderSummary = props => {
         <Button clicked={props.purchaseCancelHandler} name="cancel">
           CANCEL
         </Button>
-        <Button clicked={props.pruchaseContinueHadler} name="continue">
+        <Button clicked={props.purchaseContinueHandler} name="continue">
           CONTINUE
         </Button>
       </div>
