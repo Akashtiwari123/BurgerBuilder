@@ -6,6 +6,7 @@ import OrderSummary from "../../component/Burger/OrderSummary/OrderSummary";
 import Model from "../../component/UI/Model/Model";
 import Axios from "../../../src/axios-orders";
 import Spinner from "../../component/UI/Spinner/Spinner";
+import WithErrorHandler from "../../hoc/withErrorHandler/withErrorHandler";
 
 const INGREDIANTS_PRICE = {
   salad: 15,
