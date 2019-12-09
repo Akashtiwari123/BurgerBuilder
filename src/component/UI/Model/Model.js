@@ -14,7 +14,7 @@ class Model extends Component {
   render() {
     return (
       <AUX>
-        <div className="Box">Scroll</div>
+        <div className="Box"/>
         <Backdrop show={this.props.show} click={this.props.modalClicked} />
         <div
           className="Mod"
