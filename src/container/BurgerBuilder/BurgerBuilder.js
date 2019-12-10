@@ -18,7 +18,7 @@ const INGREDIANTS_PRICE = {
 
 class BurgerBuilder extends Component {
   state = {
-    ingrediants: null,
+    ingrediants:null,
     totalPrice: 15,
     purchasable: false,
     purchasing: false,
@@ -26,11 +26,10 @@ class BurgerBuilder extends Component {
   };
 
   componentDidMount() {
-    axios
-      .get("https://burgerbuilder-2e72a.firebaseio.com/ingrediants")
+    axios.get("https://burgerbuilder-2e72a.firebaseio.com/ingrediants.json")
       .then(response => {
         this.setState({ ingrediants: response.data });
-        console.log("fdfdsgdgr" + response.data);
+        
       });
     console.log("fetching data...");
   }
@@ -129,7 +128,9 @@ class BurgerBuilder extends Component {
     let orderSummary = null;
 
     let burger = <Spinner />;
+    console.log(this.state.ingrediants);
     if (this.state.ingrediants) {
+      console.log(this.state.ingrediants);
       burger = (
         <Aux>
           <Burger ingrediants={this.state.ingrediants} />
