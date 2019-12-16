@@ -1,0 +1,9 @@
+.Order {
+  margin: 10px auto;
+  padding: 4px 4px;
+  width: 80%;
+  border: 2px solid rgb(82, 143, 118);
+  box-sizing: border-box;
+  border-radius: 4px;
+  box-shadow: 0px 1px rgb(42, 64, 68);
+}
