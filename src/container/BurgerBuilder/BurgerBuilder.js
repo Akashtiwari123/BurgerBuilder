@@ -62,6 +62,7 @@ class BurgerBuilder extends Component {
     let burger = <Spinner />;
 
     if (this.props.ing) {
+
       burger = (
         <Aux>
           <Burger ingrediants={this.props.ing} />
@@ -104,12 +105,14 @@ class BurgerBuilder extends Component {
 
 const mapStateToProps = state => {
   return {
+
     ing: state.ingrediants,
     price: state.totalPrice
   };
 };
 
 const mapDispatchToProps = dispatch => {
+
   return {
     onIngrediantAdded: ingName =>
       dispatch({ type: actionTypes.ADD_INGREDIANT, ingrediantName: ingName }),
