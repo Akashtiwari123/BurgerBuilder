@@ -3,6 +3,7 @@ import Button from "../../../component/UI/Button/Button";
 import "./ContactData.css";
 import Spinner from "../../../component/UI/Spinner/Spinner";
 import Axios from "../../../axios-orders";
+import { connect } from "react-redux";
 
 class ContactData extends Component {
   state = {
