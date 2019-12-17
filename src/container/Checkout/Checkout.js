@@ -1,3 +1,4 @@
+
 import React, { Component } from "react";
 import CheckoutSummary from "../../component/Order/checkoutSummary/ChechkoutSummary";
 import { Route } from "react-router-dom";
@@ -41,3 +42,4 @@ const mapStateToProps = state => {
 };
 
 export default connect(mapStateToProps)(Checkout);
+
