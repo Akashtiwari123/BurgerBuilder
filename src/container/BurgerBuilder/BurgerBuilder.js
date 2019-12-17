@@ -7,8 +7,10 @@ import Model from "../../component/UI/Model/Model";
 import Axios from "../../../src/axios-orders";
 import Spinner from "../../component/UI/Spinner/Spinner";
 import WithErrorHandler from "../../hoc/withErrorHandler/withErrorHandler";
-import { connect } from "react-redux";
+import axios from "../../../src/axios-orders";
+import {connect} from "react-redux";
 import * as actionTypes from "../../store/actions";
+
 
 class BurgerBuilder extends Component {
   state = {
@@ -60,8 +62,9 @@ class BurgerBuilder extends Component {
     let orderSummary = null;
 
     let burger = <Spinner />;
-
+    
     if (this.props.ing) {
+
       burger = (
         <Aux>
           <Burger ingrediants={this.props.ing} />
@@ -106,19 +109,17 @@ const mapStateToProps = state => {
   return {
     ing: state.ingrediants,
     price: state.totalPrice
+
   };
 };
 
 const mapDispatchToProps = dispatch => {
-  return {
-    onIngrediantAdded: ingName =>
-      dispatch({ type: actionTypes.ADD_INGREDIANT, ingrediantName: ingName }),
-    onIngrediantRemove: ingName =>
-      dispatch({ type: actionTypes.REMOVE_INGREDIANT, ingrediantName: ingName })
-  };
+
+  return{
+  onIngrediantAdded:(ingName)=>dispatch({type:actionTypes.ADD_INGREDIANT, ingrediantName:ingName}),
+  onIngrediantRemove:(ingName)=>dispatch({type:actionTypes.REMOVE_INGREDIANT, ingrediantName:ingName})
+  }
 };
 
-export default connect(
-  mapStateToProps,
-  mapDispatchToProps
-)(WithErrorHandler(BurgerBuilder, Axios));
+export default connect(mapStateToProps,mapDispatchToProps)(WithErrorHandler(BurgerBuilder, Axios));
+
