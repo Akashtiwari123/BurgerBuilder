@@ -7,7 +7,7 @@ import Model from "../../component/UI/Model/Model";
 import Axios from "../../../src/axios-orders";
 import Spinner from "../../component/UI/Spinner/Spinner";
 import WithErrorHandler from "../../hoc/withErrorHandler/withErrorHandler";
-import axios from "axios";
+import axios from "../../../src/axios-orders";
 
 const INGREDIANTS_PRICE = {
   salad: 15,
