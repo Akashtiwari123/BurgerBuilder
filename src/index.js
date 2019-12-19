@@ -14,6 +14,7 @@ const app = (
   <Provider store={store}>
     <BrowserRouter>
       <App />
+      {console.log("Redux There You Are!!")}
     </BrowserRouter>
   </Provider>
 );
