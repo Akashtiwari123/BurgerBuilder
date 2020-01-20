@@ -45,7 +45,7 @@ class ContactData extends Component {
         elementConfig: {
           options: [
             { value: "fastest", displayMode: "Fastest" },
-            { value: "normal", displayMode: "Normal" }
+            { value: "cheapest", displayMode: "Cheapest" }
           ]
         },
         value: ""
@@ -57,9 +57,16 @@ class ContactData extends Component {
   orderHandler = event => {
     event.preventDefault();
     this.setState({ loading: true });
+    const formData = {};
+    for (let formElementIdentifier in this.state.orderForm) {
+      formData[formElementIdentifier] = this.state.orderForm[
+        formElementIdentifier
+      ].value;
+    }
     const order = {
       ingrediants: this.props.ingrediants,
-      price: this.props.price
+      price: this.props.price,
+      orderData: formData
     };
 
     Axios.post("/orders.json", order)
@@ -70,28 +77,33 @@ class ContactData extends Component {
       .catch(error => this.setState({ loading: false }));
   };
 
+  inputHandler = (event, inputidentifier) => {
+    const updatedOrderForm = { ...this.state.orderForm };
+    const updatedFormElement = { ...updatedOrderForm[inputidentifier] };
+    updatedFormElement.value = event.target.value;
+    updatedOrderForm[inputidentifier] = updatedFormElement;
+    this.setState({ orderForm: updatedOrderForm });
+  };
   render() {
+    let formElements = [];
+    for (let key in this.state.orderForm) {
+      formElements.push({
+        id: key,
+        config: this.state.orderForm[key]
+      });
+    }
     let form = (
-      <form>
-        <Input elementType=".." elementConfig=".." value=".." />
-        <Input
-          inputType="input"
-          type="email"
-          name="email"
-          placeholder="Email"
-        />
-        <Input
-          inputType="input"
-          type="text"
-          name="street"
-          placeholder="Street"
-        />
-        <Input
-          inputType="input"
-          type="text"
-          name="pincode"
-          placeholder="pincode"
-        />
+      <form onSubmit={this.orderHandler}>
+        {formElements.map(element => (
+          <Input
+            key={element.id}
+            elementType={element.config.elementType}
+            elementConfig={element.config.elementConfig}
+            value={element.config.value}
+            changed={event => this.inputHandler(event, element.id)}
+          />
+        ))}
+
         <Button name="continue" clicked={this.orderHandler}>
           Order
         </Button>
