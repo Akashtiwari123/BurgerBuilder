@@ -1,16 +1,55 @@
 import React, { Component } from "react";
 import Button from "../../../component/UI/Button/Button";
-import "./ContactData.css";
+import "./Details.css";
 import Spinner from "../../../component/UI/Spinner/Spinner";
 import Axios from "../../../axios-orders";
+import Input from "../../../component/UI/Input/Input";
 
 class ContactData extends Component {
   state = {
-    name: "",
-    email: "",
-    adddress: {
-      street: "",
-      postalCode: ""
+    orderForm: {
+      name: {
+        elementType: "input",
+        elementConfig: {
+          type: "text",
+          placeholder: "Your Name"
+        },
+        value: ""
+      },
+      email: {
+        elementType: "input",
+        elementConfig: {
+          type: "email",
+          placeholder: "Your E-Mail"
+        },
+        value: ""
+      },
+      street: {
+        elementType: "input",
+        elementConfig: {
+          type: "text",
+          placeholder: "Street"
+        },
+        value: ""
+      },
+      postalCode: {
+        elementType: "input",
+        elementConfig: {
+          type: "text",
+          placeholder: "PinCode"
+        },
+        value: ""
+      },
+      DeliveryMode: {
+        elementType: "select",
+        elementConfig: {
+          options: [
+            { value: "fastest", displayMode: "Fastest" },
+            { value: "normal", displayMode: "Normal" }
+          ]
+        },
+        value: ""
+      }
     },
     loading: false
   };
@@ -20,18 +59,7 @@ class ContactData extends Component {
     this.setState({ loading: true });
     const order = {
       ingrediants: this.props.ingrediants,
-      price: this.props.price,
-      customer: {
-        name: "Sky",
-        Address: {
-          Add1: "Powai",
-          City: "Mumbai",
-          Pincode: "400024",
-          State: "Maharashtra"
-        },
-        email: "test@test.com"
-      },
-      DeliveryMode: "Fast"
+      price: this.props.price
     };
 
     Axios.post("/orders.json", order)
@@ -45,10 +73,25 @@ class ContactData extends Component {
   render() {
     let form = (
       <form>
-        <input type="text" name="name" placeholder="Your Name" />
-        <input type="email" name="email" placeholder="Email" />
-        <input type="text" name="street" placeholder="Street" />
-        <input type="text" name="pincode" placeholder="pincode" />
+        <Input elementType=".." elementConfig=".." value=".." />
+        <Input
+          inputType="input"
+          type="email"
+          name="email"
+          placeholder="Email"
+        />
+        <Input
+          inputType="input"
+          type="text"
+          name="street"
+          placeholder="Street"
+        />
+        <Input
+          inputType="input"
+          type="text"
+          name="pincode"
+          placeholder="pincode"
+        />
         <Button name="continue" clicked={this.orderHandler}>
           Order
         </Button>
@@ -58,7 +101,17 @@ class ContactData extends Component {
       form = <Spinner />;
     }
     return (
-      <div classsName="ContactData">
+      <div
+        style={{
+          margin: "20px auto",
+          width: "400px",
+          textAlign: "center",
+          border: "2px solid #ccee",
+          boxShadow: "0 2px 4px #ccee",
+          padding: "10px",
+          boxSizing: "border-box"
+        }}
+      >
         <h4>Enter your contact details</h4>
         {form}
       </div>

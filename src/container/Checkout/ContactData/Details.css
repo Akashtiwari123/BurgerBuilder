@@ -1,0 +1,15 @@
+.Detail {
+  margin: 20px auto;
+  width: 100%;
+  text-align: center;
+  border: 2px solid #ccee;
+  box-shadow: 0 2px 4px #ccee;
+  padding: 10px;
+  box-sizing: border-box;
+}
+
+@media (min-width: 600px) {
+  .Detail {
+    width: 500px;
+  }
+}
