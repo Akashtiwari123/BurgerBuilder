@@ -17,6 +17,7 @@ const INGREDIANTS_PRICE = {
   meat: 25,
   myonnaise: 15
 };
+
 const reducer = (state = initialState, action) => {
   switch (action.type) {
     case actionTypes.ADD_INGREDIANT:

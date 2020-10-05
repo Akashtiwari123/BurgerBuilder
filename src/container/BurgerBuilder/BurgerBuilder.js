@@ -64,6 +64,7 @@ class BurgerBuilder extends Component {
 
 
     if (this.props.ing) {
+
       burger = (
         <Aux>
           <Burger ingrediants={this.props.ing} />
