@@ -7,6 +7,7 @@ import Model from "../../component/UI/Model/Model";
 import Axios from "../../../src/axios-orders";
 import Spinner from "../../component/UI/Spinner/Spinner";
 import WithErrorHandler from "../../hoc/withErrorHandler/withErrorHandler";
+
 import { connect } from "react-redux";
 import * as actionTypes from "../../store/actions";
 
@@ -60,6 +61,7 @@ class BurgerBuilder extends Component {
     let orderSummary = null;
 
     let burger = <Spinner />;
+
 
     if (this.props.ing) {
 
