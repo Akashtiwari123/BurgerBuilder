@@ -7,9 +7,11 @@ import Model from "../../component/UI/Model/Model";
 import Axios from "../../../src/axios-orders";
 import Spinner from "../../component/UI/Spinner/Spinner";
 import WithErrorHandler from "../../hoc/withErrorHandler/withErrorHandler";
+
 import axios from "../../../src/axios-orders";
 import {connect} from "react-redux";
 import * as actionTypes from "../../store/actions";
+
 
 
 class BurgerBuilder extends Component {
@@ -62,7 +64,7 @@ class BurgerBuilder extends Component {
     let orderSummary = null;
 
     let burger = <Spinner />;
-    
+
     if (this.props.ing) {
 
       burger = (
@@ -107,6 +109,7 @@ class BurgerBuilder extends Component {
 
 const mapStateToProps = state => {
   return {
+
     ing: state.ingrediants,
     price: state.totalPrice
 

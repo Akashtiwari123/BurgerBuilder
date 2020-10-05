@@ -4,7 +4,9 @@ import Button from "../../../component/UI/Button/Button";
 import "./ContactData.css";
 import Spinner from "../../../component/UI/Spinner/Spinner";
 import Axios from "../../../axios-orders";
+
 import { connect } from "react-redux";
+
 
 class ContactData extends Component {
   state = {
@@ -39,7 +41,9 @@ class ContactData extends Component {
     Axios.post("/orders.json", order)
       .then(response => {
         this.setState({ loading: false });
+
         this.props.history.push("/");
+
       })
       .catch(error => this.setState({ loading: false }));
   };
