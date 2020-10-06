@@ -4,6 +4,7 @@ import Layout from "./component/Layout/Layout";
 import BurgerBuilder from "./container/BurgerBuilder/BurgerBuilder";
 import Checkout from "./container/Checkout/Checkout";
 import Orders from "./container/Orders/Orders";
+
 class App extends Component {
   render() {
     return (
@@ -19,5 +20,4 @@ class App extends Component {
     );
   }
 }
-
 export default App;
