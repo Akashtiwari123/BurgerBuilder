@@ -1,6 +1,5 @@
 import React, { Component } from "react";
 import "./Model.css";
-import AUX from "../../../hoc/Aux";
 import Backdrop from "../Backdrop/Backdrop";
 
 class Model extends Component {
@@ -13,8 +12,8 @@ class Model extends Component {
 
   render() {
     return (
-      <AUX>
-        <div className="Box"/>
+      <React.Fragment>
+        <div className="Box" />
         <Backdrop show={this.props.show} click={this.props.modalClicked} />
         <div
           className="Mod"
@@ -25,7 +24,7 @@ class Model extends Component {
         >
           {this.props.children}
         </div>
-      </AUX>
+      </React.Fragment>
     );
   }
 }

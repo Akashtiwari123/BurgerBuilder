@@ -1,9 +1,8 @@
 import React from "react";
-import AUX from "../../../hoc/Aux";
 import Button from "../../UI/Button/Button";
 
-const orderSummary = props => {
-  const ingrediants = Object.keys(props.ingrediants).map(igKey => {
+const orderSummary = (props) => {
+  const ingrediants = Object.keys(props.ingrediants).map((igKey) => {
     return (
       <li key={igKey}>
         <span style={{ textTransform: "capitalize" }}>
@@ -14,7 +13,7 @@ const orderSummary = props => {
   });
 
   return (
-    <AUX>
+    <React.Fragment>
       <h3> Your Order</h3>
       <p>A delicacy in the Burger with following ingrediants:</p>
       <ul>{ingrediants}</ul>
@@ -28,7 +27,7 @@ const orderSummary = props => {
           CONTINUE
         </Button>
       </div>
-    </AUX>
+    </React.Fragment>
   );
 };
 

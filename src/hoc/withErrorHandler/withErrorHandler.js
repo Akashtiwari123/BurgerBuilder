@@ -1,6 +1,5 @@
 import React, { Component } from "react";
 import Model from "../../component/UI/Model/Model";
-import Aux from "../Aux";
 
 const withErrorHandler = (WrappedComponent, axios) => {
   return class extends Component {
@@ -9,14 +8,14 @@ const withErrorHandler = (WrappedComponent, axios) => {
     };
 
     componentDidMount() {
-      axios.interceptors.request.use(req => {
+      axios.interceptors.request.use((req) => {
         this.setState({ error: null });
         return req;
       });
 
       axios.interceptors.response.use(
-        resp => resp,
-        error => {
+        (resp) => resp,
+        (error) => {
           this.setState({ error: error });
         }
       );
@@ -28,7 +27,7 @@ const withErrorHandler = (WrappedComponent, axios) => {
 
     render() {
       return (
-        <Aux>
+        <React.Fragment>
           <Model
             show={this.state.error}
             modalClicked={this.errorConfirmedHandler}
@@ -36,7 +35,7 @@ const withErrorHandler = (WrappedComponent, axios) => {
             {this.state.error ? this.state.error.message : null}
           </Model>
           <WrappedComponent {...this.props} />
-        </Aux>
+        </React.Fragment>
       );
     }
   };

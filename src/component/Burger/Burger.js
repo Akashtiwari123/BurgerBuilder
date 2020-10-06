@@ -1,11 +1,12 @@
 import React from "react";
 import "./Burger.css";
 import BurgerIngredient from "./BurgerIngredient/BurgerIngredient";
-import {withRouter} from "react-router-dom";
-const burger = props => {
-  console.log("iyukh: "+props)
+import { withRouter } from "react-router-dom";
+
+const burger = (props) => {
+  console.log("iyukh: " + props);
   let transformedIngrediants = Object.keys(props.ingrediants)
-    .map(igKey => {
+    .map((igKey) => {
       //igkey is having the key like salad, cheese
       return [...Array(props.ingrediants[igKey])].map((_, i) => {
         return <BurgerIngredient key={igKey + i} type={igKey} />;
